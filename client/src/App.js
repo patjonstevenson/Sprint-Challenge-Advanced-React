@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from "axios";
 
+import TeamList from "./components/TeamList";
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -16,8 +18,7 @@ class App extends React.Component {
     axios
       .get("http://localhost:5000/api/players")
       .then(res => {
-        const data = res.data;
-        const teams = data
+        const teams = res.data
           .map(player => player.country)
           .reduce((acc, team) => acc.includes(team)
             ? acc
@@ -27,7 +28,7 @@ class App extends React.Component {
             .map(team => {
               return {
                 country: team,
-                players: data
+                players: res.data
                   .filter(player => player.country === team)
               };
             })
@@ -47,7 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-
+        <TeamList dataByTeam={this.state.dataByTeam} />
       </div>
     );
   }
