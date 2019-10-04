@@ -31,3 +31,44 @@
     transform: rotate(360deg);
   }
 }
+
+/* My Styles */
+
+.team-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link {
+  padding: 2.5%;
+  text-decoration: none;
+  color: blue;
+}
+
+.team-heading {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-left: 5%;
+  padding-bottom: 2.5%;
+  border-bottom: 1px solid black;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+}
+
+.team h2 {
+  
+}
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.player {
+  width: 20%;
+  padding: 5%;
+}
