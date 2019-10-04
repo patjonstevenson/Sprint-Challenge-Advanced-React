@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 
 import TeamList from "./components/TeamList";
+import TeamLinks from "./components/TeamLinks";
 
 import logo from './logo.svg';
 import './App.css';
@@ -10,6 +11,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      teams: [],
       dataByTeam: []
     };
   }
@@ -24,6 +26,7 @@ class App extends React.Component {
             ? acc
             : [...acc, team], [])
         this.setState({
+          teams: teams,
           dataByTeam: teams
             .map(team => {
               return {
@@ -48,6 +51,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h1>Women's World Cup</h1>
+        <TeamLinks teams={this.state.teams} />
         <TeamList dataByTeam={this.state.dataByTeam} />
       </div>
     );
